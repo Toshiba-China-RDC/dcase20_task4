@@ -32,7 +32,7 @@ class CRNN(nn.Module):
             self.rnn = BidirectionalGRU(nb_in,
                                         n_RNN_cell, dropout=dropout_recurrent, num_layers=n_layers_RNN)
         else:
-            NotImplementedError("Only BGRU supported for CRNN for now")
+            raise NotImplementedError("Only BGRU supported for CRNN for now")
         self.dropout = nn.Dropout(dropout)
         self.dense = nn.Linear(n_RNN_cell*2, nclass)
         self.sigmoid = nn.Sigmoid()
